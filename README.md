@@ -23,6 +23,9 @@ A personal AI assistant that runs as a Telegram bot. Understands natural languag
 
 ## Setup
 
+> [!NOTE]
+> If you need to install Python, configure local LLMs (Ollama/Gemma), set up FFmpeg, or download Text-to-Speech (Piper) voice models, please refer to the detailed [SETUP.md](file:///c:/Users/PC/Documents/the%20one%20that%20got%20away/SETUP.md) guide first.
+
 ### 1. Clone & create virtual environment
 ```bash
 git clone https://github.com/lelbob/ai-smartwatch.git
