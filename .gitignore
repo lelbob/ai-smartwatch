@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment / secrets — NEVER commit these
+.env
+*.env
+
+# Database & live data
+athena/data/*.db
+athena/data/*.db-shm
+athena/data/*.db-wal
+athena/data/tasks
+*.db
+tasks_test
+
+# Logs
+prompts.log
+*.log
+
+# Voice models (large binaries)
+voice/*.onnx
+voice/*.onnx.json
+
+# Pytest / coverage
+.pytest_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# IDE
+.vscode/
+.idea/
+
+# Windows
+Thumbs.db
+desktop.ini
