@@ -1,6 +1,6 @@
-# Athena — AI Personal Butler Bot
+# Athena — AI Smartwatch Personal Butler Bot
 
-A personal AI assistant that runs as a Telegram bot. Understands natural language to manage tasks, set reminders, take notes, search the web, and deliver daily briefings — all timezone-aware.
+A privacy-focused, voice-first personal assistant designed specifically for smartwatches and wearable devices. It runs as a Telegram bot, allowing you to use voice commands (via Whisper) and receive audio replies (via Piper) to manage tasks, set timezone-aware reminders, save notes, search the web, and get daily briefings hands-free.
 
 ## Features
 
