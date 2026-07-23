@@ -160,5 +160,5 @@ def test_model_router_falls_back_from_flash_to_local(monkeypatch) -> None:
     response = router.generate_response("hello", [], [])
 
     assert response.text == "local"
-    assert response.model_name == "local"
+    assert response.model_name == "gemma3:4b"
     assert calls == ["flash"]
