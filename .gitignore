@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# System / Temp
+.DS_Store
+Thumbs.db
+*.log
+diag_probe_log.txt
+nv_log.txt
+
+# Large temporary binary files (optional)
+# firmware_dump.bin
