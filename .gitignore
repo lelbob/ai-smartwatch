@@ -1,19 +1,51 @@
 # Python
 __pycache__/
 *.py[cod]
-*$py.class
-*.so
+*.pyo
+*.pyd
 .Python
-env/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
 venv/
+env/
 ENV/
 
-# System / Temp
-.DS_Store
-Thumbs.db
+# Secrets & Environment
+.env
+*.env
+
+# Database & Data
+athena/data/*.db
+athena/data/*.db-shm
+athena/data/*.db-wal
+athena/data/tasks
+*.db
+tasks_test
+
+# Logs & Diagnostics
+prompts.log
 *.log
 diag_probe_log.txt
 nv_log.txt
 
-# Large temporary binary files (optional)
-# firmware_dump.bin
+# Voice models & large binaries
+voice/*.onnx
+voice/*.onnx.json
+
+# Pytest / coverage
+.pytest_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# IDE & System
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
