@@ -131,7 +131,7 @@ def test_search_service_parses_searxng_results(monkeypatch) -> None:
     assert results[0].snippet == "Rain this afternoon."
 
 
-def test_model_router_falls_back_from_flash_to_pro(monkeypatch) -> None:
+def test_model_router_falls_back_from_flash_to_local(monkeypatch) -> None:
     settings = SimpleNamespace(
         gemini_api_key="key",
         gemini_flash_model="flash",
@@ -151,9 +151,7 @@ def test_model_router_falls_back_from_flash_to_pro(monkeypatch) -> None:
 
     def fake_generate(model: str, prompt: str) -> str:
         calls.append(model)
-        if model == "flash":
-            raise RuntimeError("empty")
-        return "pro response"
+        raise RuntimeError("empty")
 
     router.gemini_client = object()
     monkeypatch.setattr(router, "_generate_gemini", fake_generate)
@@ -161,6 +159,6 @@ def test_model_router_falls_back_from_flash_to_pro(monkeypatch) -> None:
 
     response = router.generate_response("hello", [], [])
 
-    assert response.text == "pro response"
-    assert response.model_name == "gemini-pro"
-    assert calls == ["flash", "pro"]
+    assert response.text == "local"
+    assert response.model_name == "local"
+    assert calls == ["flash"]
