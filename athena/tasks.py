@@ -9,14 +9,7 @@ import dateparser
  
 from .context_service import UserContext
 from .database import Database
- 
- 
-TASK_PATTERNS = [
-    re.compile(r"^\s*add\s+task\s+(?P<title>.+)$", re.IGNORECASE),
-    re.compile(r"^\s*add\s+a\s+task\s+to\s+(?P<title>.+)$", re.IGNORECASE),
-    re.compile(r"^\s*add\s+a\s+task\s+(?P<title>.+)$", re.IGNORECASE),
-    re.compile(r"^\s*todo\s*:\s*(?P<title>.+)$", re.IGNORECASE),
-]
+from .reminders import normalize_time_text
  
 TIME_WORDS = [
     "today",
@@ -45,20 +38,6 @@ class TasksService:
         else:
             from .saved_items import SavedItemsService
             self.saved_items = SavedItemsService()
- 
-    def extract_task(
-        self, text: str, context: UserContext | None = None
-    ) -> tuple[str, datetime | None] | None:
-        for pattern in TASK_PATTERNS:
-            match = pattern.match(text)
-            if not match:
-                continue
- 
-            raw_title = match.group("title").strip().rstrip(".")
-            due_date, cleaned_title = _extract_due_date_and_clean_title(raw_title, context)
-            return cleaned_title, due_date
- 
-        return None
  
     def save_task(self, user_id: int, task: str, due_date: datetime | None) -> int:
         due_str = due_date.date().isoformat() if due_date else None
@@ -110,26 +89,6 @@ class TasksService:
             lines.append(f"{index}. {item.text}{time_str}")
         return "\n".join(lines)
  
-    def extract_completion(self, text: str) -> int | None:
-        match = re.match(
-            r"^\s*(complete|finish|done)\s+task\s+(?P<id>\d+)\s*$",
-            text,
-            re.IGNORECASE,
-        )
-        if not match:
-            return None
-        return int(match.group("id"))
- 
-    def extract_deletion(self, text: str) -> int | None:
-        match = re.match(
-            r"^\s*(delete|remove|clear)\s+(?:the\s+)?(?:task|todo)(?:\s+number)?\s+(?P<id>\d+)\s*$",
-            text,
-            re.IGNORECASE,
-        )
-        if not match:
-            return None
-        return int(match.group("id"))
- 
     def complete_task(self, user_id: int, task_id: int) -> str:
         db_id = self._resolve_db_task_id(user_id, task_id)
         if db_id is not None:
@@ -160,19 +119,6 @@ class TasksService:
         return None
  
  
-def _normalize_time_text(text: str) -> str:
-    # Replace common typing errors/variations of o'clock
-    cleaned = re.sub(r"\b(olclock|oclock|o clock)\b", "o'clock", text, flags=re.IGNORECASE)
-    # "next week Friday" / "next week on Friday" -> "Friday"
-    cleaned = re.sub(r"\bnext\s+week\s+(?:on\s+)?(\w+)\b", r"\1", cleaned, flags=re.IGNORECASE)
-    # "next Friday" / "this Friday" -> "Friday"
-    # dateparser 1.4.x cannot parse "next <weekday>" but handles bare weekday
-    # names correctly when PREFER_DATES_FROM=future is set.
-    _weekdays = r"(monday|tuesday|wednesday|thursday|friday|saturday|sunday)"
-    cleaned = re.sub(r"\b(?:next|this)\s+" + _weekdays, r"\1", cleaned, flags=re.IGNORECASE)
-    return cleaned
-
-
 def _extract_due_date_and_clean_title(title: str, context: UserContext | None = None) -> tuple[datetime | None, str]:
     lowered = title.lower()
     for word in TIME_WORDS:
@@ -202,7 +148,7 @@ def _extract_due_date_and_clean_title(title: str, context: UserContext | None = 
                 else:
                     continue
 
-            norm_expr = _normalize_time_text(expression)
+            norm_expr = normalize_time_text(expression)
             parsed = _parse_due(norm_expr, context)
             if parsed:
                 # Remove the expression from the original title
@@ -216,7 +162,7 @@ def _extract_due_date_and_clean_title(title: str, context: UserContext | None = 
 
 
 def _parse_due(when_text: str, context: UserContext | None) -> datetime | None:
-    norm_text = _normalize_time_text(when_text)
+    norm_text = normalize_time_text(when_text)
     settings = {"PREFER_DATES_FROM": "future", "RETURN_AS_TIMEZONE_AWARE": True}
     if context is not None and context.timezone:
         settings["TIMEZONE"] = context.timezone

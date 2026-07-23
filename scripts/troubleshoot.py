@@ -8,11 +8,8 @@ Usage:
 
 from __future__ import annotations
 
-import sys
-import json
 import argparse
 import logging
-from datetime import datetime, timezone
 
 from google import genai
 
@@ -20,13 +17,11 @@ from athena.config import load_settings
 from athena.context_service import ContextService
 from athena.database import Database
 from athena.debug_log import PromptLogger
-from athena.intent_classifier import IntentClassifier
-from athena.memory import MemoryService
 from athena.model_router import ModelRouter
-from athena.notes import NotesService
 from athena.reminders import RemindersService
 from athena.saved_items import SavedItemsService
 from athena.search_service import SearchService
+from athena.step_classifier import StepClassifier
 from athena.tasks import TasksService
 from athena.briefing import BriefingService
 from athena.tool_router import ToolRouter
@@ -47,22 +42,25 @@ def setup_pipeline():
 
     prompt_logger = PromptLogger(settings.prompt_log_path)
     context_service = ContextService(database, settings)
-    classifier = IntentClassifier(
-        gemini_client, settings.gemini_flash_model, prompt_logger=prompt_logger
-    )
     model_router = ModelRouter(settings)
     search_service = SearchService(settings.searxng_url)
-    memory = MemoryService(database)
-    notes = NotesService(database)
+
+    classifier = StepClassifier(
+        gemini_client,
+        settings.gemini_flash_model,
+        local_llm=model_router.local_llm,
+        prompt_logger=prompt_logger,
+    )
+
     saved_items = SavedItemsService()
-    tasks = TasksService(database, saved_items=saved_items)
+    tasks = TasksService(database)
     reminders = RemindersService(database)
-    briefing = BriefingService(database, search_service, settings.athena_location, model_router=model_router)
+    briefing = BriefingService(
+        database, search_service, settings.athena_location, model_router=model_router
+    )
 
     router = ToolRouter(
         database=database,
-        memory=memory,
-        notes=notes,
         tasks=tasks,
         reminders=reminders,
         search_service=search_service,
@@ -79,24 +77,21 @@ def setup_pipeline():
 def diagnose_prompt(prompt: str, user_id: int = 1) -> None:
     database, context_service, classifier, router, saved_items = setup_pipeline()
     context = context_service.get_context(user_id)
-    history = []
 
     print("\n" + "=" * 70)
     print(f"PROMPT TEST: {prompt!r}")
     print("=" * 70)
     print(f"[CONTEXT] Timezone: {context.timezone} | Time: {context.time} ({context.date}) | Location: {context.location}")
 
-    # 1. Intent Classification Step
-    print("\n--- 1. INTENT CLASSIFIER ---")
-    decision = classifier.classify(prompt, history, context)
+    # 1. Two-Step Classification
+    print("\n--- 1. STEP CLASSIFIER ---")
+    decision = classifier.classify(prompt, context)
     if decision is None:
-        print("Classifier returned: None (will use regex fallback cascade)")
+        print("Classifier returned: None (no model reachable)")
     else:
-        print(f"Tool Chosen        : {decision.tool}")
-        print(f"Extracted Args     : {decision.args}")
-        print(f"Confidence         : {decision.confidence:.2f}")
-        print(f"Missing Fields     : {decision.missing_fields}")
-        print(f"Needs Clarification: {decision.needs_clarification}")
+        print(f"Tool Category  : {decision.tool}")
+        print(f"Action         : {decision.action or '(none)'}")
+        print(f"Extracted Args : {decision.args}")
 
     # 2. Execution Step
     print("\n--- 2. PIPELINE EXECUTION ---")

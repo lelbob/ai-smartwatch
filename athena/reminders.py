@@ -41,7 +41,7 @@ class ReminderRequest:
         return local.strftime("%Y-%m-%d %H:%M %Z").strip()
 
 
-def _normalize_time_text(text: str) -> str:
+def normalize_time_text(text: str) -> str:
     cleaned = re.sub(r"\b(olclock|oclock|o clock)\b", "o'clock", text, flags=re.IGNORECASE)
     # "next week Friday" / "next week on Friday" -> "Friday"
     cleaned = re.sub(r"\bnext\s+week\s+(?:on\s+)?(\w+)\b", r"\1", cleaned, flags=re.IGNORECASE)
@@ -67,7 +67,7 @@ class RemindersService:
 
         Returns a timezone-aware UTC datetime, or None if unparseable.
         """
-        norm_text = _normalize_time_text(when_text.strip())
+        norm_text = normalize_time_text(when_text.strip())
         settings = {
             "PREFER_DATES_FROM": "future",
             "RETURN_AS_TIMEZONE_AWARE": True,
@@ -98,58 +98,6 @@ class RemindersService:
         if remind_at.tzinfo is None:
             remind_at = remind_at.replace(tzinfo=timezone.utc)
         return remind_at.astimezone(timezone.utc)
-
-    def extract_reminder(self, text: str, context: UserContext | None = None) -> ReminderRequest | None:
-        """Legacy regex-based extraction, kept as the fallback path.
-
-        When a UserContext is supplied, times are parsed in the user tz; without
-        one we degrade to naive server-time parsing (pre-2.1 behavior).
-        """
-
-        lowered = text.strip().lower()
-        if not lowered.startswith("remind me"):
-            return None
-
-        match = re.match(
-            r"^\s*remind\s+me\s+(?P<when>in\s+.+?)\s+to\s+(?P<what>.+)$",
-            text,
-            re.IGNORECASE,
-        )
-        if not match:
-            match = re.match(
-                r"^\s*remind\s+me\s+to\s+(?P<what>.+?)\s+(?P<when>today|tomorrow|tonight|next\s+\w+|on\s+.+|at\s+.+)$",
-                text,
-                re.IGNORECASE,
-            )
-        if not match:
-            return None
-
-        when_text = match.group("when").strip()
-        reminder_text = match.group("what").strip().rstrip(".")
-
-        if context is not None:
-            remind_at_utc = self.parse_when(when_text, context)
-        else:
-            norm_text = _normalize_time_text(when_text)
-            settings = {
-                "PREFER_DATES_FROM": "future",
-                "RETURN_AS_TIMEZONE_AWARE": False,
-            }
-            try:
-                settings["RELATIVE_BASE"] = datetime.now().replace(tzinfo=None)
-            except Exception:
-                pass
-            remind_at = dateparser.parse(
-                norm_text,
-                settings=settings,
-            )
-            remind_at_utc = remind_at.replace(tzinfo=timezone.utc) if remind_at else None
-
-        if remind_at_utc is None:
-            return None
-
-        tz_name = context.timezone if context else "UTC"
-        return ReminderRequest(text=reminder_text, remind_at_utc=remind_at_utc, user_tz_name=tz_name)
 
     def build_reminder(
         self, text: str, when_text: str, context: UserContext

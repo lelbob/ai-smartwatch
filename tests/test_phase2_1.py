@@ -12,7 +12,7 @@ import pytest
 from athena.context_service import ContextService, UserContext
 from athena.database import Database
 from athena.geolocation import GeoService, ResolvedLocation
-from athena.intent_classifier import IntentClassifier, IntentDecision, _extract_json
+from athena.step_classifier import StepClassifier, StepDecision, _extract_json
 from athena.model_router import ModelRouter
 from athena.reminders import RemindersService
 from athena.search_service import SearchService
@@ -233,32 +233,28 @@ class TestGeoService:
 # ----------------------------------------------------------------------- classifier (P3)
 
 
-class TestIntentClassifier:
+class TestStepClassifier:
     def test_returns_none_when_no_client(self):
-        svc = IntentClassifier(client=None, model="flash")
-        assert svc.classify("hello", []) is None
+        svc = StepClassifier(gemini_client=None, model="flash")
+        assert svc.classify("hello") is None
 
     def test_parse_valid_json(self):
-        raw = '{"tool": "memory", "args": {"content": "exam is Friday"}, "confidence": 0.9}'
-        assert _extract_json(raw) == {"tool": "memory", "args": {"content": "exam is Friday"}, "confidence": 0.9}
+        raw = '{"action": "add", "content": "exam is Friday"}'
+        assert _extract_json(raw) == {"action": "add", "content": "exam is Friday"}
 
     def test_parse_json_in_markdown_fences(self):
-        raw = '```json\n{"tool": "note", "args": {"content": "buy milk"}}\n```'
-        assert _extract_json(raw) == {"tool": "note", "args": {"content": "buy milk"}}
+        raw = '```json\n{"action": "add", "content": "buy milk"}\n```'
+        assert _extract_json(raw) == {"action": "add", "content": "buy milk"}
 
     def test_parse_garbage_returns_none(self):
         assert _extract_json("not json at all") is None
 
-    def test_decision_is_valid_with_good_confidence(self):
-        d = IntentDecision(tool="memory", args={"content": "test"}, confidence=0.9)
+    def test_decision_is_valid_with_known_tool(self):
+        d = StepDecision(tool="task", action="add", args={"content": "test"})
         assert d.is_valid
 
-    def test_decision_invalid_with_low_confidence(self):
-        d = IntentDecision(tool="memory", args={"content": "test"}, confidence=0.3)
-        assert not d.is_valid
-
     def test_decision_invalid_with_unknown_tool(self):
-        d = IntentDecision(tool="nonexistent", args={}, confidence=0.9)
+        d = StepDecision(tool="nonexistent")
         assert not d.is_valid
 
 
@@ -293,15 +289,13 @@ class TestTimezoneAwareReminders:
 
 
 class TestTimezoneAwareTasks:
-    def test_extract_task_with_context(self):
+    def test_build_task_with_context(self):
         db, user_id = _db(tmp_path := Path("."))
         db.initialize()
         ctx_svc = ContextService(db, _settings(athena_timezone="Asia/Singapore"))
         ctx = ctx_svc.get_context(user_id)
         svc = TasksService(db)
-        result = svc.extract_task("add a task to submit the report tomorrow", ctx)
-        assert result is not None
-        title, due = result
+        title, due = svc.build_task("submit the report", "tomorrow", ctx)
         assert "submit the report" in title
         assert due is not None
 

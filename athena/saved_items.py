@@ -157,29 +157,28 @@ class SavedItemsService:
             self._write_all(kept)
         return removed
 
-    def extract_delete_number(self, text: str) -> int | None:
-        match = re.match(
-            r"^\s*(delete|remove|clear)\s+(?:the\s+)?(?:item|thing|task|todo|note|reminder)(?:\s+number)?\s+(?P<number>\d+)\s*$",
-            text,
-            re.IGNORECASE,
-        )
-        return int(match.group("number")) if match else None
+    def save_memory(self, user_id: int, content: str) -> None:
+        """Persist a long-term memory fact."""
+        self.add(user_id, content)
 
-    def extract_complete_number(self, text: str) -> int | None:
-        match = re.match(
-            r"^\s*(complete|finish|done|mark\s+done)\s+(?:the\s+)?(?:item|thing|task|todo|note|reminder)(?:\s+number)?\s+(?P<number>\d+)\s*$",
-            text,
-            re.IGNORECASE,
-        )
-        return int(match.group("number")) if match else None
-
-    def extract_done_text(self, text: str) -> str | None:
-        match = re.match(
-            r"^\s*(done\s+with|finished|completed)\s+(?P<text>.+)$",
-            text,
-            re.IGNORECASE,
-        )
-        return _clean_text(match.group("text")) if match else None
+    def retrieve_relevant(self, user_id: int, query: str, top_k: int = 5) -> list[str]:
+        """Return saved items whose text overlaps with query keywords."""
+        query_words = set(re.findall(r"[a-zA-Z0-9']+", query.lower()))
+        query_words -= {"i", "me", "my", "the", "a", "an", "is", "am", "are",
+                        "do", "does", "did", "to", "of", "in", "on", "at", "for",
+                        "and", "or", "but", "not", "it", "this", "that", "what",
+                        "when", "where", "how", "who", "which", "have", "has"}
+        if not query_words:
+            return []
+        items = self.list_active(user_id)
+        scored = []
+        for item in items:
+            item_words = set(re.findall(r"[a-zA-Z0-9']+", item.text.lower()))
+            overlap = len(query_words & item_words)
+            if overlap > 0:
+                scored.append((overlap, item.text))
+        scored.sort(key=lambda x: x[0], reverse=True)
+        return [text for _, text in scored[:top_k]]
 
     def _read_all(self) -> list[SavedItem]:
         items: list[SavedItem] = []

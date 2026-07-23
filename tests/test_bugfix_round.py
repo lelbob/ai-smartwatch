@@ -262,10 +262,10 @@ class TestMainWiring:
         sig = inspect.signature(AthenaBot.__init__)
         assert "settings" in sig.parameters
 
-    def test_intent_classifier_accepts_prompt_logger(self):
-        """Verify IntentClassifier.__init__ signature includes prompt_logger."""
-        from athena.intent_classifier import IntentClassifier
+    def test_step_classifier_accepts_prompt_logger(self):
+        """Verify StepClassifier.__init__ signature includes prompt_logger."""
+        from athena.step_classifier import StepClassifier
         import inspect
 
-        sig = inspect.signature(IntentClassifier.__init__)
+        sig = inspect.signature(StepClassifier.__init__)
         assert "prompt_logger" in sig.parameters

@@ -11,7 +11,7 @@ from .context_service import ContextService
 from .database import Database
 from .debug_log import PromptLogger
 from .geolocation import GeoService
-from .intent_classifier import IntentClassifier
+from .step_classifier import StepClassifier
 from .model_router import ModelRouter
 from .search_service import SearchService
 from .telegram_bot import AthenaBot
@@ -53,15 +53,19 @@ def main() -> None:
     prompt_logger = PromptLogger(settings.prompt_log_path)
 
     context_service = ContextService(database, settings)
-    classifier = IntentClassifier(
-        gemini_client, settings.gemini_flash_model, prompt_logger=prompt_logger
-    )
     geo_service = GeoService(settings.nominatim_user_agent)
 
     model_router = ModelRouter(settings)
     if model_router.local_llm.is_available():
         log.info("Warming up Ollama model %s ...", settings.ollama_model)
         model_router.local_llm.warm_up()
+
+    classifier = StepClassifier(
+        gemini_client,
+        settings.gemini_flash_model,
+        local_llm=model_router.local_llm,
+        prompt_logger=prompt_logger,
+    )
 
     bot = AthenaBot(
         token=settings.telegram_bot_token,

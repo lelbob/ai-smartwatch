@@ -21,13 +21,11 @@ from .config import Settings
 from .context_service import ContextService
 from .database import Database
 from .geolocation import GeoService
-from .intent_classifier import IntentClassifier
-from .memory import MemoryService
 from .model_router import ModelRouter
-from .notes import NotesService
 from .reminders import RemindersService
 from .scheduler import ProactiveScheduler
 from .search_service import SearchService
+from .step_classifier import StepClassifier
 from .tasks import TasksService
 from .tool_router import ToolRouter
 from .tts import TTSError, TextToSpeech
@@ -50,7 +48,7 @@ class AthenaBot:
         tts: TextToSpeech,
         location: str,
         context_service: ContextService,
-        classifier: IntentClassifier,
+        classifier: StepClassifier,
         geo_service: GeoService,
         settings: Settings,
     ) -> None:
@@ -64,8 +62,6 @@ class AthenaBot:
         self.context_service = context_service
         self.geo_service = geo_service
 
-        memory = MemoryService(database)
-        notes = NotesService(database)
         tasks = TasksService(database)
         reminders = RemindersService(database)
         briefing = BriefingService(database, search_service, location, model_router=model_router)
@@ -74,8 +70,6 @@ class AthenaBot:
         self.preferences = PreferenceService(database, tts.default_voice)
         self.router = ToolRouter(
             database=database,
-            memory=memory,
-            notes=notes,
             tasks=tasks,
             reminders=reminders,
             search_service=search_service,

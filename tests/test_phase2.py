@@ -46,10 +46,7 @@ def test_tasks_can_have_no_due_date(tmp_path: Path) -> None:
     user_id = database.upsert_user(123, None, "Test", None)
     service = TasksService(database, SavedItemsService(tmp_path / "tasks"))
 
-    result = service.extract_task("add task clean desk")
-
-    assert result == ("clean desk", None)
-    task_id = service.save_task(user_id, result[0], result[1])
+    task_id = service.save_task(user_id, "clean desk", None)
     active = database.active_tasks(user_id)
     assert active[0]["id"] == task_id
     assert active[0]["due_date"] is None
@@ -64,9 +61,7 @@ def test_tasks_delete_visible_number(tmp_path: Path) -> None:
     service.save_task(user_id, "first task", None)
     second_id = service.save_task(user_id, "second task", None)
 
-    deletion = service.extract_deletion("delete task 2")
-    assert deletion == 2
-    reply = service.delete_task(user_id, deletion)
+    reply = service.delete_task(user_id, 2)
     active = database.active_tasks(user_id)
 
     assert reply == "Task 2 deleted."
