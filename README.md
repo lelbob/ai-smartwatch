@@ -27,23 +27,22 @@ Athena runs as a Telegram bot for hands-free voice commands (reminders, tasks, n
 
 ```
 ai-smartwatch/
-├── athena/                 # Core AI Telegram bot & LLM tool router
+├── SMARTWATCH_DOCUMENTATION.txt  # Complete technical specifications & diagram UI docs
+├── PROJECT_LOG.txt               # Detailed log of all research, working methods & failed attempts
+├── index.html                    # 240x240 smartwatch web display simulator
+├── styles.css                    # OLED dark mode theme & diagram layout CSS
+├── app.js                        # Hold/release gesture engine & SIM Telegram client
+├── athena/                       # Core AI Telegram bot & LLM tool router
 │   ├── main.py             # Bot entry point
 │   ├── telegram_bot.py     # Telegram handlers
 │   ├── reminders.py        # Reminder parsing & scheduling
-│   ├── intent_classifier.py# Gemini intent classification
+│   ├── model_router.py     # Model fallback router
 │   └── database.py         # SQLite persistence layer
-├── scripts/                # Diagnostic CLIs
-├── tests/                  # Pytest suite
-├── full_flash_dumper.py    # WinUSB direct firmware dumper
-├── winusb_dump_nv.py       # Live hardware telemetry reader
-├── probe_diag.py           # Diagnostic port prober
-├── dumps/                  # Firmware & memory binaries
-│   ├── firmware_dump.bin   # Dumped flash image
-│   └── live_diag_stream.bin# Live hardware telemetry log
-└── tools/                  # Drivers and flashing utilities
-    ├── zadig.exe           # WinUSB driver installer
-    └── spd_dump/           # Spreadtrum bootloader utilities & FDL loaders
+├── smartwatch_tools/             # Hardware reverse-engineering & flashing tools
+│   ├── full_firmware_extractor.py # Automated multi-method 16MB flash dumper
+│   ├── dumps/                    # Firmware binaries (52KB memory, 10.5KB NVRAM)
+│   ├── mocor_app/                # Native C smartwatch application & flash injector
+│   └── spd_dump/                 # Spreadtrum BootROM tools & FDL loaders
 ```
 
 ---
