@@ -1,0 +1,436 @@
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+read_imsi.,
+gprs_state_check plmn:.nMNCLen=0
+is_gprs_ready:0.is_gprs_attached=0
+gprs_state_check apn: plmn:.
+apn not find !!!!
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+current: bat_vol=4206, bat_percent=100
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+close_link.
+close_link.link...
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+NetWorkSignalLevelIndication level=18,nSimID=0
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+NetWorkSignalLevelIndication level=17,nSimID=0
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+time_sock_close.
+--gprs_time_calibration.flag=1,timeout=120.
+gprs_time_calibration.ip_url:agpse.3g-elec.com,port:8089.
+--gprs_creater_put.ip_url:agpse.3g-elec.com,port=8089.
+gprs_creater_put.exist!
+gprs_time_calibration.ip_url:121.43.19.219,port:8089.
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+rebuild_link rebuild_link_count=1.
+--gprs_creater_put.ip_url:52.28.132.157,port=8001.
+gprs_creater_put.exist!
+rebuild_link 0x821a7e70
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+read_imsi.,
+gprs_state_check plmn:.nMNCLen=0
+is_gprs_ready:0.is_gprs_attached=0
+gprs_state_check apn: plmn:.
+apn not find !!!!
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+current: bat_vol=4200, bat_percent=100
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+close_link.
+close_link.link...
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+read_imsi.,
+gprs_state_check plmn:.nMNCLen=0
+is_gprs_ready:0.is_gprs_attached=0
+gprs_state_check apn: plmn:.
+apn not find !!!!
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+rebuild_link rebuild_link_count=1.
+--gprs_creater_put.ip_url:52.28.132.157,port=8001.
+gprs_creater_put.exist!
+rebuild_link 0x821a7e70
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+current: bat_vol=4200, bat_percent=100
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+time_sock_close.
+--gprs_time_calibration.flag=1,timeout=120.
+gprs_time_calibration.ip_url:agpse.3g-elec.com,port:8089.
+--gprs_creater_put.ip_url:agpse.3g-elec.com,port=8089.
+gprs_creater_put.exist!
+gprs_time_calibration.ip_url:121.43.19.219,port:8089.
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+read_imsi.,
+gprs_state_check plmn:.nMNCLen=0
+is_gprs_ready:0.is_gprs_attached=0
+gprs_state_check apn: plmn:.
+apn not find !!!!
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+close_link.
+close_link.link...
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+current: bat_vol=4194, bat_percent=99
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+rebuild_link rebuild_link_count=1.
+--gprs_creater_put.ip_url:52.28.132.157,port=8001.
+gprs_creater_put.exist!
+rebuild_link 0x821a7e70
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+read_imsi.,
+gprs_state_check plmn:.nMNCLen=0
+is_gprs_ready:0.is_gprs_attached=0
+gprs_state_check apn: plmn:.
+apn not find !!!!
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+current: bat_vol=4194, bat_percent=99
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+upload_data_m7.m7_step=1 wifi_n=0.
+wifi_get_ap wifi_is_using=0 wifi_is_opening=0
+sleep_disable hdl=1 sys_sleep_handle=1
+wifi_PowerOnEx_1 start
+wifi_init from rdawifi/wifi_init.c
+wifi_Read_Version rdawifi.
+wifi_PowerOn
+Read I2C: register: 0x20; data:0xffff.
+project_id 0xffff
+Read I2C: register: 0x21; data:0xffff.
+ chip_version : 0xffff
+ wifi_version_flag : 0x0
+wifi_ScanAps++++++++
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+wifi_PowerOnEx_1 start wifi_version_flag=0 wifi_init_flag=0
+##########wifi_ScanApsEx_1##########
+##########wifi_ScanApsEx_1########## err
+wifi_PowerOff
+wifi_PowerOff_wifi.
+Wifi_Sdio_Close
+stop_wifi_poll_timer wifi_poll_timer_start=0
+Read I2C: register: 0x28; data:0xffff.
+####wifi####wifi_PowerOffRsp 
+sleep_enable hdl=1 sys_sleep_handle=0
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+close_link.
+close_link.link...
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+wifi_get_ap_timeout wifi_is_using=0
+upload_data_m7.m7_step=2 wifi_n=0.
+send_data.flag=0.
+get_step_count_all --- step_count_all=0.
+gprs_data_put_rom gps_datarom_count=20.gps_saverom_index=0.
+
+ data buffer is full!!!!!!
+gprs_data_get_rom.gps_datarom_count=20.
+soc_sendto.error!(login_flag=0).
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+upload_data_m7.m7_step=0 wifi_n=0.
+time_sock_close.
+--gprs_time_calibration.flag=1,timeout=120.
+gprs_time_calibration.ip_url:agpse.3g-elec.com,port:8089.
+--gprs_creater_put.ip_url:agpse.3g-elec.com,port=8089.
+gprs_creater_put.exist!
+gprs_time_calibration.ip_url:121.43.19.219,port:8089.
+rebuild_link rebuild_link_count=1.
+--gprs_creater_put.ip_url:52.28.132.157,port=8001.
+gprs_creater_put.exist!
+rebuild_link 0x821a7e70
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:99,pwon_count:46
+read_imsi.,
+gprs_state_check plmn:.nMNCLen=0
+is_gprs_ready:0.is_gprs_attached=0
+gprs_state_check apn: plmn:.
+apn not find !!!!

@@ -1,13 +1,13 @@
 import subprocess
-import serial
+import usb.core
+import usb.backend.libusb1
 import time
 import struct
 import os
-import sys
 
-SPD_DIR = os.path.abspath("spd_dump")
-SPD_DUMP = os.path.join(SPD_DIR, "spd_dump.exe")
+SPD_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "spd_dump"))
 FDL1 = os.path.join(SPD_DIR, "t117_fdl1.bin")
+OUT_BIN = os.path.abspath("firmware_dump.bin")
 
 def sprd_crc16(data: bytes) -> int:
     crc = 0
@@ -37,63 +37,53 @@ def build_hdlc_frame(cmd_id: int, sub_cmd: int = 0, payload: bytes = b"") -> byt
             
     return bytes([0x7E]) + bytes(stuffed) + bytes([0x7E])
 
-def send_soft_reset():
-    print("Opening COM7 (DIAG) to trigger soft-reset via AT tunnel...")
+def trigger_soft_reset_usb():
+    print("Sending USB Mode Switch reset packet over libusbK...")
     try:
-        ser = serial.Serial('COM7', baudrate=115200, timeout=1, write_timeout=1)
-        ser.dtr = True
-        ser.rts = True
-        
-        pkt1 = build_hdlc_frame(0x38, 0x00, b"AT+CFUN=1,1\r\n")
-        pkt2 = build_hdlc_frame(0x38, 0x00, b"AT+RESET\r\n")
-        pkt3 = build_hdlc_frame(0x0A, 0x01)
-        
-        print("Sending AT+CFUN=1,1 tunnel...")
-        ser.write(pkt1)
-        time.sleep(0.2)
-        print("Sending AT+RESET tunnel...")
-        ser.write(pkt2)
-        time.sleep(0.2)
-        print("Sending Mode Switch Download frame...")
-        ser.write(pkt3)
-        time.sleep(0.2)
-        
-        ser.close()
-        print("Soft reset commands sent.")
+        dll_path = os.path.join(SPD_DIR, "libusb-1.0.dll")
+        backend = usb.backend.libusb1.get_backend(find_library=lambda x: dll_path)
+        dev = usb.core.find(idVendor=0x1782, idProduct=0x3D00, backend=backend)
+        if dev is not None:
+            frame = build_hdlc_frame(0x0A, 0x01)
+            try:
+                dev.write(0x02, frame, timeout=200)
+                print("[OK] Soft reset packet sent successfully to EP 0x02.")
+            except Exception as e:
+                print(f"[INFO] Write note: {e}")
     except Exception as e:
-        print(f"Serial reset error: {e}")
+        print(f"[INFO] USB soft reset exception: {e}")
+
+def run_executable(exe_name):
+    exe_path = os.path.join(SPD_DIR, exe_name)
+    if not os.path.exists(exe_path):
+        return False
+    print(f"\n---> Running {exe_name}...")
+    cmd = [
+        exe_path,
+        "--verbose", "2",
+        "--wait", "5",
+        "fdl", FDL1, "0x40004000",
+        "read_flash", "0x80000000", "0", "16M", OUT_BIN
+    ]
+    res = subprocess.run(cmd, capture_output=True, text=True, cwd=SPD_DIR)
+    print("STDOUT:", res.stdout.strip())
+    print("STDERR:", res.stderr.strip())
+    if os.path.exists(OUT_BIN) and os.path.getsize(OUT_BIN) > 0:
+        print(f"[SUCCESS] Flash binary downloaded to {OUT_BIN} ({os.path.getsize(OUT_BIN)} bytes)!")
+        return True
+    return False
 
 def main():
     print("=" * 60)
-    print("      UNISOC SC6531 Smartwatch Automated Firmware Dumper      ")
+    print("      UNISOC SC6531 Multi-Profile Flash Dumper      ")
     print("=" * 60)
     
-    out_bin = os.path.abspath("firmware_dump.bin")
+    trigger_soft_reset_usb()
+    time.sleep(0.5)
     
-    print(f"spd_dump tool path: {SPD_DUMP}")
-    print(f"FDL loader path:    {FDL1}")
-    
-    # 1. Trigger soft reset on COM7
-    send_soft_reset()
-    
-    print("\nLaunching spd_dump to catch BootROM reset...")
-    cmd = [
-        SPD_DUMP,
-        "--wait", "5",
-        "fdl", FDL1, "0x40004000",
-        "read_flash", "0x80000000", "0", "16M", out_bin
-    ]
-    
-    print(f"Executing: {' '.join(cmd)}")
-    res = subprocess.run(cmd, capture_output=True, text=True, cwd=SPD_DIR)
-    print(res.stdout)
-    if res.stderr:
-        print(f"Stderr: {res.stderr}")
-        
-    if os.path.exists(out_bin) and os.path.getsize(out_bin) > 0:
-        print(f"\n[SUCCESS] Firmware dumped to {out_bin} ({os.path.getsize(out_bin)} bytes)!")
-    else:
-        print("\n[INFO] Run finished.")
+    for exe in ["spd_dump.exe", "spd_dump_3d00.exe", "spd_dump_ep2.exe"]:
+        if run_executable(exe):
+            break
 
 if __name__ == "__main__":
     main()

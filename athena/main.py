@@ -4,7 +4,12 @@ from __future__ import annotations
 
 import logging
 
-from google import genai
+try:
+    from google import genai
+    GENAI_AVAILABLE = True
+except ImportError:
+    genai = None
+    GENAI_AVAILABLE = False
 
 from .config import load_settings, validate_settings
 from .context_service import ContextService
@@ -46,7 +51,7 @@ def main() -> None:
 
     gemini_client = (
         genai.Client(api_key=settings.gemini_api_key)
-        if settings.gemini_api_key
+        if (GENAI_AVAILABLE and settings.gemini_api_key)
         else None
     )
 

@@ -1,6 +1,6 @@
 """
-autobind_winusb.py - Automatically binds Windows built-in WinUSB driver to VID_1782&PID_3D00
-using newdev.dll API with elevated Administrator privileges.
+autobind_winusb.py - Automatically binds Windows WinUSB/libusbK driver to VID_1782&PID_3D00 and VID_1782&PID_4D00
+using elevated Administrator privileges.
 """
 
 import ctypes
@@ -24,10 +24,9 @@ def bind_winusb():
         )
         return
 
-    print("=== Automating WinUSB Driver Binding ===")
+    print("=== Automating WinUSB Driver Binding for 1782:3D00 and 1782:4D00 ===")
     
-    # 1. Create custom INF pointing to built-in WinUSB
-    inf_dir = os.path.abspath("winusb_driver")
+    inf_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "winusb_driver"))
     os.makedirs(inf_dir, exist_ok=True)
     inf_file = os.path.join(inf_dir, "unisoc_winusb.inf")
     
@@ -47,6 +46,8 @@ DriverVer=01/01/2026,1.0.0.0
 %DeviceName%=USB_Install, USB\VID_1782&PID_3D00
 %DeviceName%=USB_Install, USB\VID_1782&PID_3D00&MI_00
 %DeviceName%=USB_Install, USB\VID_1782&PID_3D00&MI_01
+%DeviceName%=USB_Install, USB\VID_1782&PID_4D00
+%DeviceName%=USB_Install, USB\VID_1782&PID_4D00&MI_00
 
 [USB_Install]
 Include=winusb.inf
@@ -80,29 +81,10 @@ WinUSB_SvcDesc="WinUSB Driver Service"
         
     print(f"Generated INF: {inf_file}")
     
-    # Run devcon / pnputil / UpdateDriverForPlugAndPlayDevicesW
-    hwid = "USB\\VID_1782&PID_3D00"
-    print(f"Binding {hwid} to WinUSB via newdev.dll...")
-    
-    newdev = ctypes.windll.newdev
-    bRebootRequired = ctypes.c_bool(False)
-    
-    # INSTALLFLAG_FORCE = 0x00000001
-    ret = newdev.UpdateDriverForPlugAndPlayDevicesW(
-        None,
-        hwid,
-        inf_file,
-        1, # FORCE
-        ctypes.byref(bRebootRequired)
-    )
-    
-    if ret:
-        print("[SUCCESS] WinUSB driver successfully bound to VID_1782&PID_3D00!")
-    else:
-        err = ctypes.GetLastError()
-        print(f"[INFO] UpdateDriver returned false (WinError code: {err})")
-        print("Executing pnputil scan-devices fallback...")
-        subprocess.run(["pnputil", "/scan-devices"], capture_output=True)
+    for hwid in ["USB\\VID_1782&PID_3D00", "USB\\VID_1782&PID_4D00"]:
+        print(f"Binding {hwid} via pnputil...")
+        res = subprocess.run(["pnputil", "/add-driver", inf_file, "/install"], capture_output=True, text=True)
+        print(res.stdout)
 
 if __name__ == "__main__":
     bind_winusb()

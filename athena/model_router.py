@@ -5,8 +5,12 @@ from __future__ import annotations
 import logging
 from dataclasses import dataclass
 
-import httpx
-from google import genai
+try:
+    from google import genai
+    GENAI_AVAILABLE = True
+except ImportError:
+    genai = None
+    GENAI_AVAILABLE = False
 
 from .config import Settings
 from .context_service import UserContext
@@ -31,7 +35,7 @@ class ModelRouter:
         self.settings = settings
         self.gemini_client = (
             genai.Client(api_key=settings.gemini_api_key)
-            if settings.gemini_api_key
+            if (GENAI_AVAILABLE and settings.gemini_api_key)
             else None
         )
         self.local_llm = LocalLLM(

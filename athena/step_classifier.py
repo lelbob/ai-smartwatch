@@ -14,7 +14,12 @@ import logging
 import re
 from dataclasses import dataclass, field
 
-from google import genai
+try:
+    from google import genai
+    GENAI_AVAILABLE = True
+except ImportError:
+    genai = None
+    GENAI_AVAILABLE = False
 
 from .context_service import UserContext
 from .debug_log import PromptLogger

@@ -1,0 +1,19 @@
+--gprs_creater_put.ip_url:52.28.132.157,port=8001.
+--gprs_creater_put.ip_url:agpse.3g-elec.com,port=8089.
+--gprs_time_calibration.flag=1,timeout=120.
+apn not find !!!!
+close_link.
+close_link.link...
+current: bat_vol=4172, bat_percent=96
+gprs_creater_put.exist!
+gprs_state_check apn: plmn:.
+gprs_state_check plmn:.nMNCLen=0
+gprs_time_calibration.ip_url:121.43.19.219,port:8089.
+gprs_time_calibration.ip_url:agpse.3g-elec.com,port:8089.
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:100,pwon_count:46
+is_gprs_attached=0,gsm:0,sim:0,signal:100,bat:96,pwon_count:46
+is_gprs_ready:0.is_gprs_attached=0
+read_imsi.,
+rebuild_link 0x821a7e70
+rebuild_link rebuild_link_count=1.
+time_sock_close.

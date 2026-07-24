@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smartwatch AI Display</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Smartwatch Casing -->
+  <div class="watch-casing">
+    
+    <!-- Physical Side Button -->
+    <button id="side-button" class="side-button" title="Click: Tasks | Hold & Release: Listen & Send">
+      <div class="button-notch"></div>
+    </button>
+
+    <!-- Smartwatch Display Screen -->
+    <div class="watch-screen">
+      
+      <!-- View 1: Default Tasks View (Screen 1 in diagram) -->
+      <section id="screen-1" class="screen-view active">
+        <header class="screen-header">
+          <span id="time-display" class="time-header">09:41</span>
+        </header>
+
+        <div class="tasks-container">
+          <h2 class="tasks-title">Tasks</h2>
+          <ol class="numbered-task-list" id="task-ol">
+            <li>Review smartwatch C code</li>
+            <li>Test Telegram SIM Bot messaging</li>
+            <li>Sync GPRS A-GPS time data</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- View 2: Listening View (Screen 2 in diagram - Active while holding button) -->
+      <section id="screen-2" class="screen-view">
+        <div class="listening-container">
+          <div class="listening-circle">
+            <div class="inner-pulse"></div>
+          </div>
+          <h2 class="listening-text">Listening</h2>
+          <p id="live-transcript" class="transcript-subtext">Hold button to speak...</p>
+        </div>
+      </section>
+
+      <!-- View 3: Question & Answer View (Screen 3 in diagram) -->
+      <section id="screen-3" class="screen-view">
+        <div class="qa-container">
+          <!-- Question Section -->
+          <div class="qa-section question-section">
+            <div class="qa-label">Question</div>
+            <div id="qa-question" class="qa-text">What is the weather today?</div>
+          </div>
+
+          <hr class="qa-divider">
+
+          <!-- Answer Section -->
+          <div class="qa-section answer-section">
+            <div class="qa-label">Ans</div>
+            <div id="qa-answer" class="qa-text">72°F, Clear Sky. Battery at 98%.</div>
+          </div>
+
+          <!-- Bottom Action Buttons (Read Aloud | OK) -->
+          <div class="qa-bottom-buttons">
+            <button id="btn-read-aloud" class="qa-btn btn-read-aloud" title="Read Aloud">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+              </svg>
+              <span>Read Aloud</span>
+            </button>
+            <button id="btn-ok" class="qa-btn btn-ok" title="After OK -> Returns to Tasks">
+              <span>OK</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+@echo off
+echo Flashing Athena C App to UNISOC SC6531 NOR Flash...
+python smartwatch_tools/try_spd_dump_now.py
